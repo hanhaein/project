@@ -32,5 +32,10 @@ app.post('/login',function(req,res){
     }
 });
 
+const companyList=require('./data');
+
+app.get('/company',function(req,res){
+    res.json(companyList);
+});
 
 const server=app.listen(4000);

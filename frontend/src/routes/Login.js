@@ -40,6 +40,7 @@ class Login extends React.Component{
             }else if(success===2){
                 history.push('/register');
             }else if(error===-1){
+                alert('비밀번호가 맞지 않습니다.');
                 return;
             }
         });
@@ -56,7 +57,7 @@ class Login extends React.Component{
                         </Form.Field>
                         <Form.Field>
                           <label>User Password</label>
-                          <input placeholder='User Password' onChange={this.handleUserPass}/>
+                          <input type="password" placeholder='User Password' onChange={this.handleUserPass}/>
                         </Form.Field>
                         <Button onClick={this.handleSubmit}>Submit</Button>
                     </Form>   
