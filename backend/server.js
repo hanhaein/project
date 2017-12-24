@@ -38,4 +38,24 @@ app.get('/company',function(req,res){
     res.json(companyList);
 });
 
+app.get('/company/:company_id',function(req,res){
+//    console.log(req.params.company_id);
+    const all=companyList.company;
+    console.log(all);
+    /*
+        [
+            { id : 1, ...}
+            { id : 1, ...}
+            ...
+        ]
+    */
+    const result=all.filter(function(v){
+        // server안에 id와 넘어온 id(입력한 id)가 같다면 return
+        return v.id==req.params.company_id;
+    });
+    
+    res.json(result[0]);
+});
+
+
 const server=app.listen(4000);
